@@ -2,8 +2,6 @@ package org.fabian.csg;
 
 import java.util.ArrayList;
 
-import com.jme3.math.Vector3f;
-
 public class Node {
 	private Plane plane;
 	private Node front;

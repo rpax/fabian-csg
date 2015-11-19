@@ -7,7 +7,6 @@ import com.jme3.export.JmeExporter;
 import com.jme3.export.JmeImporter;
 import com.jme3.export.OutputCapsule;
 import com.jme3.export.Savable;
-import com.jme3.math.Vector3f;
 
 public class Polygon implements Savable {
 	private Vertex[] vertices;
