@@ -8,74 +8,148 @@
 	<description>Fabian CSG (Constructive Shape Geometry) is a library for jMonkeyEngine that allows creating dynamic models with boolean operations.</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.7</maven.compiler.source>
-		<maven.compiler.target>1.7</maven.compiler.target>
-		<jme.version>3.0.10</jme.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<jme.version>3.1.0-beta1</jme.version>
+		<jme.bulletnatives.version>3.0.10</jme.bulletnatives.version>
 		<jme.version.snapshot>3.1.0-SNAPSHOT</jme.version.snapshot>
 	</properties>
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>ISO-8859-1</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>1.12</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+				</configuration>
+			</plugin>
+
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+	</build>
 	<repositories>
 		<repository>
-			<id>JME3-repo</id>
-			<name>JME3 Repository</name>
-			<url>http://updates.jmonkeyengine.org/maven</url>
+			<id>MavenCentral</id>
+			<name>Maven repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>jme3-repo</id>
+			<name>jme3-repo</name>
+			<url>http://jcenter.bintray.com/</url>
+		</repository>
+		<repository>
+			<id>nifty-maven-repo.sourceforge.net</id>
+			<url>http://nifty-gui.sourceforge.net/nifty-maven-repo</url>
+		</repository>
+		<repository>
+			<id>jme3-contrib</id>
+			<url>http://dl.bintray.com/jmonkeyengine/contrib</url>
 		</repository>
 	</repositories>
 	<dependencies>
+		<!-- JME -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.jme3</groupId>
+			<groupId>org.jmonkeyengine</groupId>
 			<artifactId>jme3-blender</artifactId>
 			<version>${jme.version}</version>
 		</dependency>
+		<!-- ====================================================== -->
+		<!-- TODO FIND 3.1.0 bullet natives -->
+		<!-- ====================================================== -->
 		<dependency>
-			<groupId>com.jme3</groupId>
+			<groupId>org.jmonkeyengine</groupId>
+			<artifactId>jme3-bullet-native</artifactId>
+			<version>${jme.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jmonkeyengine</groupId>
 			<artifactId>jme3-bullet</artifactId>
 			<version>${jme.version}</version>
 		</dependency>
+		<!-- ====================================================== -->
+		<!-- TODO FIND 3.1.0 bullet natives -->
+		<!-- ====================================================== -->
+
 		<dependency>
-			<groupId>com.jme3</groupId>
-			<artifactId>jme3-bullet-natives</artifactId>
-			<version>${jme.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.jme3</groupId>
+			<groupId>org.jmonkeyengine</groupId>
 			<artifactId>jme3-core</artifactId>
 			<version>${jme.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.jme3</groupId>
+			<groupId>org.jmonkeyengine</groupId>
 			<artifactId>jme3-desktop</artifactId>
 			<version>${jme.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.jme3</groupId>
+			<groupId>org.jmonkeyengine</groupId>
 			<artifactId>jme3-effects</artifactId>
 			<version>${jme.version}</version>
 		</dependency>
+
 		<dependency>
-			<groupId>com.jme3</groupId>
-			<artifactId>jme3-jbullet</artifactId>
-			<version>${jme.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.jme3</groupId>
+			<groupId>org.jmonkeyengine</groupId>
 			<artifactId>jme3-jogg</artifactId>
 			<version>${jme.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.jme3</groupId>
-			<artifactId>jme3-lwjgl</artifactId>
+			<groupId>org.jmonkeyengine</groupId>
+			<artifactId>jme3-jogl</artifactId>
 			<version>${jme.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.jme3</groupId>
-			<artifactId>jme3-testdata</artifactId>
-			<version>${jme.version.snapshot}</version>
+			<groupId>org.jmonkeyengine</groupId>
+			<artifactId>jme3-lwjgl</artifactId>
+			<version>${jme.version}</version>
 		</dependency>
+		<!-- <dependency> <groupId>org.jmonkeyengine</groupId> <artifactId>jme3-lwjgl3</artifactId> 
+			<version>${jme.version}</version> </dependency> -->
+		<dependency>
+			<groupId>org.jmonkeyengine</groupId>
+			<artifactId>jme3-networking</artifactId>
+			<version>${jme.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jmonkeyengine</groupId>
+			<artifactId>jme3-niftygui</artifactId>
+			<version>${jme.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jmonkeyengine</groupId>
+			<artifactId>jme3-plugins</artifactId>
+			<version>${jme.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jmonkeyengine</groupId>
+			<artifactId>jme3-terrain</artifactId>
+			<version>${jme.version}</version>
+		</dependency>
+		<!-- /JME -->
 	</dependencies>
 </project>
