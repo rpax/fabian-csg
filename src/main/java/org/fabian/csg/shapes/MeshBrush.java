@@ -30,10 +30,12 @@ public class MeshBrush extends CSG {
 			Vector3f norm1 = new Vector3f(normBuffer.get(idx1 * 3), normBuffer.get((idx1 * 3) + 1), normBuffer.get((idx1 * 3) + 2));
 			Vector3f norm2 = new Vector3f(normBuffer.get(idx2 * 3), normBuffer.get((idx2 * 3) + 1), normBuffer.get((idx2 * 3) + 2));
 			Vector3f norm3 = new Vector3f(normBuffer.get(idx3 * 3), normBuffer.get((idx3 * 3) + 1), normBuffer.get((idx3 * 3) + 2));
-			Vector2f uv1 = new Vector2f(uvBuffer.get(idx1 * 2), uvBuffer.get((idx1 * 2) + 1));
-			Vector2f uv2 = new Vector2f(uvBuffer.get(idx2 * 2), uvBuffer.get((idx2 * 2) + 1));
-			Vector2f uv3 = new Vector2f(uvBuffer.get(idx3 * 2), uvBuffer.get((idx3 * 2) + 1));
-			
+			Vector2f uv1=new Vector2f(),uv2=new Vector2f(),uv3=new Vector2f();
+			if (uvBuffer!=null){
+			uv1 = new Vector2f(uvBuffer.get(idx1 * 2), uvBuffer.get((idx1 * 2) + 1));
+			uv2 = new Vector2f(uvBuffer.get(idx2 * 2), uvBuffer.get((idx2 * 2) + 1));
+			uv3 = new Vector2f(uvBuffer.get(idx3 * 2), uvBuffer.get((idx3 * 2) + 1));
+			}
 			Vertex vertex1 = new Vertex(pos1, norm1, uv1);
 			Vertex vertex2 = new Vertex(pos2, norm2, uv2);
 			Vertex vertex3 = new Vertex(pos3, norm3, uv3);
